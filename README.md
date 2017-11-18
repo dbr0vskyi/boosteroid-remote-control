@@ -1,2 +1,2 @@
-# boosteroid-spa
-Angular SPA for Boosteroid platform which provides control and video streaming remote cloud machines.
+# boosteroid-remote-control
+Node.js + Angular SPA for Boosteroid platform which provides remote control for cloud machines.
