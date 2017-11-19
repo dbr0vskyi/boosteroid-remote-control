@@ -1,0 +1,12 @@
+# Node garbage
+**/node_modules
+
+# Build garbage
+**/.awcache
+**/dist
+
+# macOS garbage
+**/.DS_Store
+
+# IDE garbage
+**/.idea
