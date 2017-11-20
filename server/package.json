@@ -9,6 +9,7 @@
   "author": "Yevhenii Dubrovskyi",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "config": "^1.28.1",
     "express": "^4.16.2",
     "morgan": "^1.9.0",

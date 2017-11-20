@@ -4,9 +4,13 @@
 # Build garbage
 **/.awcache
 **/dist
+**/compiled
 
 # macOS garbage
 **/.DS_Store
 
 # IDE garbage
 **/.idea
+
+# Server garbage
+**/log

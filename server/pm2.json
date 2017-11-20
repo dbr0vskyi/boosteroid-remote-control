@@ -1,0 +1,9 @@
+{
+  "apps": [{
+    "name": "boosteroid-server",
+    "script": "app/index.js",
+    "env": {
+      "production": true
+    }
+  }]
+}
