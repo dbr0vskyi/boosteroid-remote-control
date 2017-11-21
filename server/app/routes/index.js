@@ -1,7 +1,7 @@
-const auth = require('./auth.router');
-const mocks = require('./mocks.router');
+const authRouter = require('./auth.router');
+const mocksRouter = require('./mocks.router');
 
 module.exports = {
-  auth,
-  mocks,
+  authRouter,
+  mocksRouter,
 };

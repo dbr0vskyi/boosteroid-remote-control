@@ -4,7 +4,10 @@ const express = require('express');
 const logger = require('morgan');
 const config = require('config');
 
-const { api } = require('./routes');
+const {
+  authRouter,
+  mocksRouter
+} = require('./routes');
 
 const appLogsPath = path.join(
   __dirname,
@@ -22,7 +25,8 @@ app.use((req, res, next) => {
   next();
 });
 app.use(logger('tiny', { stream: appLogs }));
-app.use('/api', api);
+app.use('/auth', authRouter);
+app.use('/mocks', mocksRouter);
 
 app.use((err, req, res, next) => {
   res.status(err.statusCode || 500)

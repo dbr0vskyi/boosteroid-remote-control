@@ -1,7 +1,7 @@
 module.exports = {
   port: 8080,
   logs: {
-    path: '/log',
+    path: '../log',
     filename: 'app.log'
   }
 };
