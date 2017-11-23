@@ -18,6 +18,7 @@ const appLogs = fs.createWriteStream(appLogsPath, { flags: 'a' });
 const app = express();
 
 app.disable('x-powered-by');
+app.set('view engine', 'pug');
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");

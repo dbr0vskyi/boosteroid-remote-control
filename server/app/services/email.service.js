@@ -1,12 +1,23 @@
 class EmailService {
-  _provider = null;
 
   constructor(EmailProvider, options) {
     this._provider = new EmailProvider(options);
   }
 
-  sendEmail(options) {
-    this._provider.sendEmail();
+  setTemplateService(service) {
+    if (!this.templateService) this.templateService = service;
+  }
+
+  sendEmail({ to, subject, viewName, data }) {
+    if (!this.setTemplateService) throw new Error('Template service must be configurated');
+
+    const compiledView = this.templateService.getCompiledView(viewName);
+
+    return this._provider.sendEmail({
+      to,
+      subject,
+      html: compiledView(data),
+    });
   }
 
 }

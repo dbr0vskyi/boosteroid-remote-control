@@ -1,0 +1,12 @@
+include email-scheme-default.pug
+doctype html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"
+html
+    head
+        title!= title
+        meta(http-equiv='content-type' content='text/html; charset=utf-8')
+    body
+        table
+            tr
+                td
+                    table
+                        block content
