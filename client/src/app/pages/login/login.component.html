@@ -1,0 +1,61 @@
+<page-header></page-header>
+
+<div class="main_wrap">
+  <div class="main">
+    <div class="main_content">
+      <div class="main_content-header">
+        <p><span class="main_content-header--bold">Welcome</span><br/> to DEMO Boosteroid Service</p>
+      </div>
+      <p class="main_content-text">
+        Boosteroid is a cloud services platform that provides convenient access to computing  resources, storages and software products.<br/><br/>Cloud computer allows to render video, create 3D-graphics, play games and perform other tasks that require high computer performance. The only thing you will need is stable connection to the high-speed Internet.
+      </p>
+    </div>
+
+    <div class="form">
+      <div class="form_title">
+        <p>You’ve got limited time <br/>to try out our service demo</p>
+      </div>
+      <div id="form_timer" class="form_timer">
+        <div class="form_timer-time">
+          <span class="form_timer-time--minutes">05</span>
+          <p>minutes</p>
+        </div>
+        <div class="form_timer-time">
+          <span class="form_timer-time--seconds">00</span>
+          <p>seconds</p>
+        </div>
+      </div>
+
+      <form class="form_inner"
+            (submit)="onFormSubmit($event)">
+        <label class="form_inner-enter" for="email-input">Please enter your email to get access</label>
+        <input #email
+               type="text"
+               id="email-input"
+               name="email"
+               placeholder="Your email*"
+               class="form_inner-email"
+               [class.error]="formIsValid === false && !isValidInput(email)"
+               pattern=".+@.+"
+               required>
+
+        <div class="form_inner-action">
+          <input #confirm
+                 type="checkbox"
+                 id="form_inner-action--confirm"
+                 class="form_inner-action--confirm"
+                 name="confirm"
+                 required>
+          <label for="form_inner-action--confirm" class="form_inner-action--label">
+            <span class="form_inner-action--label--deco"
+                  [class.error]="formIsValid === false && !isValidInput(confirm)"></span>I am agree with <a href="#" class="form_inner-action--link"> terms and conditions</a>
+          </label>
+
+          <button id="form_inner-action--button"
+                  class="form_inner-action--button"
+                  type="submit">try out now</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -19,11 +19,12 @@ import { AppState } from './app.service';
     './app.component.scss'
   ],
   template: `
-    <notification></notification>
     <div class="app-wrapper">
       <waiting class="app-waiting"></waiting>
       <router-outlet></router-outlet>
     </div>
+    <modal-wrapper></modal-wrapper>
+    <notification-wrapper></notification-wrapper>
   `
 })
 export class AppComponent implements OnInit {

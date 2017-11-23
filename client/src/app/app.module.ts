@@ -16,7 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
-import { EffectsModule } from '@ngx/effects';
+import { EffectsModule } from '@ngrx/effects';
 
 import { metaReducers, reducers } from './reducers';
 
@@ -29,15 +29,17 @@ import { NoContentComponent } from './no-content';
 
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { LoginModule } from './pages';
+import { NotificationWrapperModule } from './common-controls/notification-wrapper'
+import { ModalWrapperModule } from './common-controls/modal-wrapper'
 import { CustomRouterStateSerializer } from './shared/utils';
 
-import { ActivePageEffects } from './common-controls/active-page/active-page.effects';
-import { ModalWrapperEffects } from './common-controls/modal-wrapper/modal-wrapper.effects';
-import { NotificationEffects } from './common-controls/notification/notification.effects';
+import { ActivePageEffects } from './common-controls/active-page';
+import { ModalWrapperEffects } from './common-controls/modal-wrapper';
+import { NotificationWrapperEffects } from './common-controls/notification-wrapper';
+import { RouterEffects } from './common-controls/router';
 
 import '../styles/styles.scss';
-
-import { RouterEffects } from './common-controls/router/router.effects';
 
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS, AppState,
@@ -53,6 +55,9 @@ type StoreType = {
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    LoginModule,
+    ModalWrapperModule,
+    NotificationWrapperModule,
     HttpModule,
     RouterModule.forRoot(
       ROUTES,
@@ -71,12 +76,12 @@ type StoreType = {
     StoreDevtoolsModule.instrument({
       maxAge: 55,
     }),
-    EffectsModule.forRoot({
+    EffectsModule.forRoot([
       ActivePageEffects,
-      NotificationEffects,
+      NotificationWrapperEffects,
       ModalWrapperEffects,
       RouterEffects,
-    }),
+    ]),
   ],
   declarations: [
     AppComponent, NoContentComponent,

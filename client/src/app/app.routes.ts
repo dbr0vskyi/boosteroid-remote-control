@@ -1,15 +1,63 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 
-import { DataResolver } from './app.resolver';
+import { AuthGuard } from './auth';
+import {
+  LoginComponent,
+  LoginResolveService,
+  InfoResolveService,
+  QuizResolveService,
+  RemoteControlResolveService,
+  SettingsResolveService,
+} from './pages';
 
 export const ROUTES: Routes = [
-  { path: '',      component: HomeComponent },
-  { path: 'home',  component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'detail', loadChildren: './+detail#DetailModule'},
-  { path: 'barrel', loadChildren: './+barrel#BarrelModule'},
-  { path: '**',    component: NoContentComponent },
+  {
+    path: 'login',
+    component: LoginComponent,
+    resolve: {
+      item: LoginResolveService,
+    },
+  },
+  {
+    path: 'info',
+    loadChildren: './pages/info#InfoModule',
+    resolve: {
+      item: InfoResolveService,
+    },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'quiz',
+    loadChildren: './pages/quiz#QuizModule',
+    resolve: {
+      item: QuizResolveService,
+    },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'remote-control',
+    loadChildren: './pages/remote-control#RemoteControlModule',
+    resolve: {
+      item: RemoteControlResolveService,
+    },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'settings',
+    loadChildren: './pages/settings#SettingsModule',
+    resolve: {
+      item: SettingsResolveService,
+    },
+    canActivate: [AuthGuard]
+  },
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
+    path: '**',
+    component: NoContentComponent,
+  }
 ];
