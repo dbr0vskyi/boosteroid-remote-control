@@ -4,10 +4,10 @@ const express = require('express');
 const logger = require('morgan');
 const config = require('config');
 
-const {
-  authRouter,
-  mocksRouter
-} = require('./routes');
+const { emailService, templateService } = require('./services');
+emailService.setTemplateService(templateService);
+
+const { authRouter, mocksRouter } = require('./routes');
 
 const appLogsPath = path.join(
   __dirname,
@@ -25,7 +25,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-app.use(logger('tiny', { stream: appLogs }));
+app.use(logger(config.get('logs.type'), { stream: appLogs }));
 app.use('/auth', authRouter);
 app.use('/mocks', mocksRouter);
 

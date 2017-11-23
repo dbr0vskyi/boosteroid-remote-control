@@ -4,6 +4,22 @@ class DBService {
     this._provider = new DBProvider(options);
   }
 
+  getData(pathArray) {
+    return this._provider.getData(pathArray);
+  }
+
+  setData(pathArray, data) {
+    return this._provider.setData(pathArray, data);
+  }
+
+  pushData(pathArray, data) {
+    return this._provider.pushData(pathArray, data);
+  }
+
+  removeData(pathArray) {
+    return this._provider.removeData(pathArray);
+  }
+
 }
 
 module.exports = DBService;

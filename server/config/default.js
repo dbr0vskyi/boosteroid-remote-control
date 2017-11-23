@@ -2,15 +2,18 @@ const path = require('path');
 
 module.exports = {
   port: 8080,
+
   logs: {
     path: '../log',
-    filename: 'app.log'
+    filename: 'app.log',
+    type: 'combined'
   },
 
   app: {
     db: {
       provider: 'firebase',
       options: {
+        rootNode: 'boosteroid-demo-cloud',
         pathToServiceAccountKey: path.join('config', 'boosteroid-demo-cloud-firebase-adminsdk-gpv4o-029d5c9b17.json'),
         databaseURL: 'https://boosteroid-demo-cloud.firebaseio.com',
       }
