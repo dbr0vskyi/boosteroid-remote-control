@@ -1,0 +1,132 @@
+
+.main_wrap {
+  min-height: -webkit-calc(100vh - 76px);
+  min-height: calc(100vh - 76px);
+  background: url("../../../assets/img/service_4_background.png") center;
+  background-size: cover;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.main {
+  padding: 0 16px;
+  text-align: center;
+  max-width: 1000px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.main_header {
+  margin-bottom: 70px;
+}
+
+.main_header-text {
+  background-image: -webkit-linear-gradient(60deg, #00c6ff 0%, #5c36ee 100%);
+  background-image: linear-gradient(30deg, #00c6ff 0%, #5c36ee 100%);
+  color: #151515;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font: 30px "RobotoLight";
+}
+
+.main_header-text--bold {
+  font: 70px "RobotoMedium";
+  line-height: 70px;
+}
+
+.main_share {
+  color: #4c5b60;
+}
+
+.main_share-header {
+  font: 18px 'RalewayBold';
+  margin-bottom: 10px;
+}
+
+.main_share-text {
+  font: 14px 'RalewayRegular';
+  margin-bottom: 23px;
+}
+
+.main_share-socials {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.main_share-socials > * {
+  margin-left: 10px;
+  margin-right: 10px;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.main_share-socials > *:hover {
+  opacity: .5;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.main_button {
+  margin: 0 auto;
+  padding: 12px 0;
+  max-width: 250px;
+  width: 100%;
+  border: none;
+  font: 16px "DINPro-CondensedBold";
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+  letter-spacing: 1px;
+  background-image: -webkit-linear-gradient(60deg, #00c6ff 0%, #5c36ee 100%);
+  background-image: linear-gradient(30deg, #00c6ff 0%, #5c36ee 100%);
+  margin-top: 80px;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 4px 4px 16px rgba(15, 15, 15, 0.2);
+  box-shadow: 4px 4px 16px rgba(15, 15, 15, 0.2);
+}
+
+.main_link {
+  color: #4c5b60;
+  font: 14px 'RalewayRegular';
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 480px) {
+  .main_wrap {
+    min-height: -webkit-calc(100vh - 127px);
+    min-height: calc(100vh - 127px);
+  }
+}

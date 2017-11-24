@@ -1,6 +1,9 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { HttpUtilsService } from './http-utils.service';
+import { SocketService } from './socket.service';
+import { RemoteControlService } from '../pages/remote-control';
 import { UtilsService, UtilsServiceConfig } from './utils.service';
 import { AuthGuard, AuthService } from '../auth';
 import { StorageService } from './storage.service';
@@ -16,9 +19,12 @@ import { SettingsResolveService } from '../pages/settings';
     UtilsService,
     AuthGuard,
     AuthService,
+    SocketService,
+    RemoteControlService,
     StorageService,
     InfoResolveService,
     LoginResolveService,
+    HttpUtilsService,
     LoginService,
     QuizResolveService,
     RemoteControlResolveService,

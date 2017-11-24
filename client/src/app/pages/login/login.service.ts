@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class LoginService {
 
-  constructor() { }
+  constructor() {}
 
   public isFormValid(form: any): boolean {
     return Array.prototype.slice.call(form)

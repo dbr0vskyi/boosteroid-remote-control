@@ -1,0 +1,39 @@
+<page-header></page-header>
+
+<div class="main_wrap">
+  <div class="main">
+    <div class="main_header">
+      <p class="main_header-text"><span class="main_header-text--bold">Demo period has expired</span><br/>Please, answer a couple of questions and give feedback.</p>
+    </div>
+
+    <div class="question">
+      <div class="question_first">
+        <p>Нужен ли такой сервис?</p>
+        <div class="question_first-inner">
+          <input type="radio" name="first_question" class="question_first-inner--approve">
+          <input type="radio" name="first_question" class="question_first-inner--disapprove">
+        </div>
+      </div>
+
+      <div class="question_second">
+        <p>Есть ли конкретное приложение, которое вы бы хотели<br/>проверить на таком сервисе ?</p>
+        <div class="question_second-inner">
+          <input type="radio" name="second_question" class="question_second-inner--approve">
+          <input type="radio" name="second_question" class="question_second-inner--disapprove">
+        </div>
+        <div class="question_second-popup">
+          <div class="question_second-popup--text">
+            <p>Напишите, какое?</p>
+          </div>
+          <textarea class="question_second-popup--input" name="question_second-popup--input" id="question_second-popup--input" cols="30" rows="1"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="feedback">
+      <div class="feedback_text">Ваши предложения, если таковые имеются!</div>
+      <textarea class="feedback_input" name="feedback_input" id="feedback_input" cols="30" rows="4"></textarea>
+      <button class="feedback_button">send feedback</button>
+    </div>
+  </div>
+</div>

@@ -5,11 +5,12 @@ const firebaseAdmin = require("firebase-admin");
 class FirebaseProvider {
 
   constructor(options) {
-    const serviceAccount = require(path.join(process.cwd(), options.pathToServiceAccountKey));
+    this.options = options;
 
+    const serviceAccount = require(path.join(process.cwd(), this.options.pathToServiceAccountKey));
     firebaseAdmin.initializeApp({
       credential: firebaseAdmin.credential.cert(serviceAccount),
-      databaseURL: options.databaseURL,
+      databaseURL: this.options.databaseURL,
     });
 
     this.db = firebaseAdmin.database();
@@ -21,7 +22,7 @@ class FirebaseProvider {
 
   getData(pathArray) {
     return new Promise((resolve, reject) => {
-      this.getRef(pathArray).once('value', resolve);
+      this.getRef(pathArray).once('value', (data) => resolve(data.val()));
     });
   }
 
@@ -29,8 +30,16 @@ class FirebaseProvider {
     return this.getRef(pathArray).set(data);
   }
 
+  updateData(pathArray, data) {
+    return this.getRef(pathArray).update(data);
+  }
+
   pushData(pathArray, data) {
     return this.getRef(pathArray).push(data);
+  }
+
+  transactionData(pathArray, callback) {
+    return this.getRef(pathArray).transaction(callback);
   }
 
   removeData(pathArray) {

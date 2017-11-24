@@ -1,3 +1,4 @@
 <modal *ngIf="modalData$ | async"
+       [data]="modalData$ | async"
        (onClose)="onCloseModal()">
 </modal>

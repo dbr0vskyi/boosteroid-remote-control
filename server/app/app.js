@@ -7,7 +7,7 @@ const config = require('config');
 const { emailService, templateService } = require('./services');
 emailService.setTemplateService(templateService);
 
-const { authRouter, mocksRouter } = require('./routes');
+const { authRouter, mocksRouter, machineRouter } = require('./routes');
 
 const appLogsPath = path.join(
   __dirname,
@@ -28,6 +28,7 @@ app.use((req, res, next) => {
 app.use(logger(config.get('logs.type'), { stream: appLogs }));
 app.use('/auth', authRouter);
 app.use('/mocks', mocksRouter);
+app.use('/machine', machineRouter);
 
 app.use((err, req, res, next) => {
   res.status(err.statusCode || 500)

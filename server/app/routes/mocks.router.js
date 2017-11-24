@@ -1,17 +1,9 @@
 const express = require('express');
-
-// TODO: Require mocks
+const { mocksControllers } = require('../controllers');
 
 const router = express.Router();
 
-// router.get('/keymap', (req, res) => {
-//   setTimeout(() => {
-//     res.status(200)
-//       .json(ipListMock);
-//   }, 2000);
-//
-//   res.status(200)
-//     .json(keymapMock);
-// });
+router.get('/keymap', mocksControllers.keymapController);
+router.get('/modals', mocksControllers.modalsController);
 
 module.exports = router;

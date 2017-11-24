@@ -13,7 +13,7 @@ module.exports = {
     db: {
       provider: 'firebase',
       options: {
-        rootNode: 'boosteroid-demo-cloud',
+        rootNode: 'demo',
         pathToServiceAccountKey: path.join('config', 'boosteroid-demo-cloud-firebase-adminsdk-gpv4o-029d5c9b17.json'),
         databaseURL: 'https://boosteroid-demo-cloud.firebaseio.com',
       }
@@ -24,7 +24,6 @@ module.exports = {
       options: {
         apiKey: 'key-0a6b68eb83fd0da2caf3abd1d104278a',
         domain: 'cloud.boosteroid.com',
-        // domain: 'cloud.boosteroid.com',
         from: 'noreply@cloud.boosteroid.com',
       },
     },

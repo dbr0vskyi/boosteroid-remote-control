@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+import { ModalModel } from './modal.model';
 
 @Component({
   selector: 'modal',
@@ -6,6 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent {
+  @Input() data: ModalModel;
   @Output('onClose') close = new EventEmitter<void>();
 
   constructor() {}
