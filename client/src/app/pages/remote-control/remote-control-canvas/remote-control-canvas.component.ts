@@ -61,7 +61,6 @@ export class RemoteControlCanvasComponent implements OnInit {
 
   private initializeRDPConnection() {
     this.socketService.emit('infos', {
-      port : 3389,
       screen : {
         width : this.width,
         height : this.height

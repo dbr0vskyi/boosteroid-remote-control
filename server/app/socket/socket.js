@@ -39,7 +39,7 @@ module.exports = function(server) {
             client.emit('rdp-error', err);
           })
           // .connect(infos.ip, infos.port);
-          .connect('159.224.19.249', infos.port);
+          .connect('159.224.19.249', 3340);
 
       })
       .on('mouse', function (x, y, button, isPressed) {

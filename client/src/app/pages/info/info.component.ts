@@ -22,7 +22,9 @@ export class InfoComponent extends DispatchOnDestroy {
     super();
   }
 
-  public redirectTo(path) {
+  public redirectTo(event, path) {
+    event.preventDefault();
+
     this.router.navigate([ path ]);
   }
 }

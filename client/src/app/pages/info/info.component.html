@@ -21,12 +21,12 @@
       </div>
     </div>
     <button class="main_button"
-            (click)="redirectTo('/settings')">
+            (click)="redirectTo($event, '/settings')">
       go back
     </button>
     <a class="main_link"
        href="#"
-       (click)="redirectTo('/settings')">
+       (click)="redirectTo($event, '/settings')">
       Try again
     </a>
   </div>

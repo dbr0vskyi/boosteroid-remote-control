@@ -14,4 +14,10 @@ module.exports = {
     button: 'Ok',
   },
 
+  'machines-are-busy': {
+    title: 'Oops',
+    img: 'service_2_error.png',
+    text: ''
+  }
+
 };

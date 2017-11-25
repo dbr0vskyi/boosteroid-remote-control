@@ -26,10 +26,10 @@ app.use((req, res, next) => {
   next();
 });
 app.use(logger(config.get('logs.type'), { stream: appLogs }));
-app.use('/auth', authRouter);
-app.use('/mocks', mocksRouter);
-app.use('/machine', machineRouter);
-app.use('/others', othersRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/mocks', mocksRouter);
+app.use('/api/machine', machineRouter);
+app.use('/api/others', othersRouter);
 
 // FOR DEVELOPMENT PURPOSE
 app.use(express.static(path.join(__dirname, '../../client/dist')));

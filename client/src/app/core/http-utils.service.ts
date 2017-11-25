@@ -11,24 +11,26 @@ export class HttpUtilsService {
   constructor(
     private http: HttpClient,
     private authService: AuthService,
-  ) {}
+  ) {
+
+  }
 
   getModalsData() {
-    return this.http.get<{ [key: string]: ModalModel }>(this.PREFIX + '/mocks/modals');
+    return this.http.get<{ [key: string]: ModalModel }>(this.PREFIX + '/api/mocks/modals');
   }
 
   getKeymap() {
-    return this.http.get(this.PREFIX + '/mocks/keymap');
+    return this.http.get(this.PREFIX + '/api/mocks/keymap');
   }
 
   postRequestAccess(email) {
-    return this.http.post(this.PREFIX + '/auth/request-access', {
+    return this.http.post(this.PREFIX + '/api/auth/request-access', {
       email
     });
   }
 
   saveFeedback(form) {
-    return this.http.post(this.PREFIX + '/others/save-feedback', {
+    return this.http.post(this.PREFIX + '/api/others/save-feedback', {
       form,
       // userID: this.authService.getUserID(),
       userID: '1aedb8d9dc4751e229a335e371db8058',
