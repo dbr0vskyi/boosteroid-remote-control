@@ -4,8 +4,7 @@ module.exports = {
     subject: '[cloud.boosteroid.com] Access to resources',
     title: 'Access to cloud.boosteroid.com',
     viewName: 'auth',
-    // linkHref: 'https://cloud.boosteroid.com/setings',
-    linkHref: 'localhost:8080/settings',
+    linkHref: 'https://cloud.boosteroid.com/setings',
   },
 
   'available-machine': {
