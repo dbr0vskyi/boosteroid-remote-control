@@ -9,4 +9,4 @@ ENV NPM_CONFIG_LOGLEVEL warn
 RUN npm install
 RUN ls -la /server
 
-CMD [ "npm", "start:prod" ]
+CMD [ "npm", "start" ]
