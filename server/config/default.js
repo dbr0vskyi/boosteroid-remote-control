@@ -22,8 +22,8 @@ module.exports = {
     email: {
       provider: 'mail-gun',
       options: {
-        apiKey: 'key-0a6b68eb83fd0da2caf3abd1d104278a',
-        domain: 'cloud.boosteroid.com',
+        apiKey: 'key-c5a71a885d4b97abc7eb09a734921a24',
+        domain: 'sandbox610cdc764b3a4d1d8ab7cf5051168d58.mailgun.org',
         from: 'noreply@cloud.boosteroid.com',
       },
     },
