@@ -1,0 +1,12 @@
+version: '3'
+services:
+  static:
+    container_name: static
+    build: ./client
+    links:
+      - server
+    ports:
+      - "80:80"
+  server:
+    container_name: server
+    build: ./server

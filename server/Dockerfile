@@ -1,16 +1,12 @@
-FROM keymetrics/pm2:latest
-
+FROM node:8
 # Bundle APP files
-COPY app app/
-COPY config config/
-COPY package.json .
-COPY pm2.json .
-
+RUN mkdir -p /server
+WORKDIR /server
+ADD . .
+RUN mkdir log && touch log/app.log
 # Install app dependencies
 ENV NPM_CONFIG_LOGLEVEL warn
-RUN npm install --production
+RUN npm install
+RUN ls -la /server
 
-# Show current folder structure in logs
-RUN ls -al -R
-
-CMD [ "pm2-docker", "start", "pm2.json" ]
+CMD [ "npm", "start:prod" ]

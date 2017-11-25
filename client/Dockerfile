@@ -1,20 +1,14 @@
-FROM node
+FROM node:8-alpine as client
+ADD package.json .
+RUN npm install && mkdir -p /app && cp -R ./node_modules /app
+WORKDIR /app
+COPY . .
+RUN npm run build:aot:prod
 
-# install npm (in separate dir due to docker cache)
-ADD package.json /tmp/npm_inst/package.json
-RUN cd /tmp/npm_inst &&\
-    npm install &&\
-    mkdir -p /tmp/app &&\
-    mv /tmp/npm_inst/node_modules /tmp/app/
+FROM nginx:1.13.3-alpine
+COPY nginx/default.conf /etc/nginx/conf.d/
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=client /app/dist /usr/share/nginx/html
+CMD ["nginx", "-g", "daemon off;"]
 
-# build and publish application
-ADD . /tmp/app
-RUN cd /tmp/app &&\
-    npm build:aot:prod &&\
-    mv ./dist/* /usr/share/nginx/html/
 
-# clean
-RUN rm -Rf /tmp/npm_inst &&\
-    rm -Rf /tmp/app &&\
-    rm -Rf /root/.npm &&\
-    apk del nodejs
