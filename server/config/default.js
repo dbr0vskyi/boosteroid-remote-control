@@ -9,6 +9,11 @@ module.exports = {
     type: 'combined'
   },
 
+  tempRDPCredentials: {
+    user: '',
+    pass: ''
+  },
+
   app: {
     db: {
       provider: 'firebase',

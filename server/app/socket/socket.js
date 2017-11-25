@@ -1,3 +1,4 @@
+const config = require('config');
 const rdp = require('node-rdpjs');
 
 module.exports = function(server) {
@@ -18,8 +19,8 @@ module.exports = function(server) {
             // domain: infos.domain,
             // userName: infos.username,
             // password: infos.password,
-            userName: 'user',
-            password: 'qaz123wsx',
+            userName: config.get('tempRDPCredentials.user'),
+            password: config.get('tempRDPCredentials.pass'),
             enablePerf: true,
             autoLogin: true,
             screen: infos.screen,
