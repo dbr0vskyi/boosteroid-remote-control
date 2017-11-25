@@ -6,7 +6,8 @@ import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class HttpUtilsService {
-  private PREFIX: string = 'http://localhost:8080';
+  // private PREFIX: string = 'http://localhost:8080';
+  private PREFIX: string = '';
 
   constructor(
     private http: HttpClient,

@@ -32,10 +32,10 @@ app.use('/api/machine', machineRouter);
 app.use('/api/others', othersRouter);
 
 // FOR DEVELOPMENT PURPOSE
-app.use(express.static(path.join(__dirname, '../../client/dist')));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
-});
+// app.use(express.static(path.join(__dirname, '../../client/dist')));
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
+// });
 // =======================
 
 app.use((err, req, res, next) => {
