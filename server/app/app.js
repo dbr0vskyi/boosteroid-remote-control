@@ -7,7 +7,7 @@ const config = require('config');
 const { emailService, templateService } = require('./services');
 emailService.setTemplateService(templateService);
 
-const { authRouter, mocksRouter, machineRouter } = require('./routes');
+const { authRouter, mocksRouter, machineRouter, othersRouter } = require('./routes');
 
 const appLogsPath = path.join(
   __dirname,
@@ -29,6 +29,14 @@ app.use(logger(config.get('logs.type'), { stream: appLogs }));
 app.use('/auth', authRouter);
 app.use('/mocks', mocksRouter);
 app.use('/machine', machineRouter);
+app.use('/others', othersRouter);
+
+// FOR DEVELOPMENT PURPOSE
+app.use(express.static(path.join(__dirname, '../../client/dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
+});
+// =======================
 
 app.use((err, req, res, next) => {
   res.status(err.statusCode || 500)

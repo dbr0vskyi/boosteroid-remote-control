@@ -18,7 +18,6 @@ module.exports = function(server) {
             // domain: infos.domain,
             // userName: infos.username,
             // password: infos.password,
-            domain: '159.224.19.249',
             userName: 'user',
             password: 'qaz123wsx',
             enablePerf: true,
@@ -39,7 +38,8 @@ module.exports = function(server) {
           .on('error', function (err) {
             client.emit('rdp-error', err);
           })
-          .connect(infos.ip, infos.port);
+          // .connect(infos.ip, infos.port);
+          .connect('159.224.19.249', infos.port);
 
       })
       .on('mouse', function (x, y, button, isPressed) {

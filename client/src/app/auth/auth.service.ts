@@ -10,4 +10,7 @@ export class AuthService {
   ) {
   }
 
+  public getUserID() {
+  }
+
 }

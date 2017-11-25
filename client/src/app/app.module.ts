@@ -27,9 +27,17 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { NoContentComponent } from './no-content';
 
+import {
+  LoginModule,
+  QuizEffects,
+  InfoEffects,
+  LoginEffects,
+  SettingsEffects,
+  RemoteControlEffects
+} from './pages';
+
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { LoginModule } from './pages';
 import { NotificationWrapperModule } from './common-controls/notification-wrapper'
 import { ModalWrapperModule } from './common-controls/modal-wrapper'
 import { CustomRouterStateSerializer } from './shared/utils';
@@ -81,6 +89,11 @@ type StoreType = {
       NotificationWrapperEffects,
       ModalWrapperEffects,
       RouterEffects,
+      QuizEffects,
+      InfoEffects,
+      LoginEffects,
+      SettingsEffects,
+      RemoteControlEffects
     ]),
   ],
   declarations: [

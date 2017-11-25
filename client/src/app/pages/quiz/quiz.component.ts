@@ -11,6 +11,7 @@ import { DispatchOnDestroy } from '../../abstract';
   styleUrls: ['quiz.component.scss'],
 })
 export class QuizComponent extends DispatchOnDestroy {
+  public form$: Observable<any>;
 
   protected storePageName: string = 'Quiz';
 
@@ -18,5 +19,16 @@ export class QuizComponent extends DispatchOnDestroy {
     protected store: Store<any>,
   ) {
     super();
+
+    this.form$ = this.store.select('quiz', 'form');
   }
+
+  public changeInput(inputName, newValue) {
+    this.store.dispatch(new quiz.SetFormAction({ [inputName]: newValue }));
+  }
+
+  public sendFeedback() {
+    this.store.dispatch(new quiz.SendFormAction());
+  }
+
 }

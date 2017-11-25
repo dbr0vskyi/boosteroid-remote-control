@@ -27,7 +27,10 @@ module.exports = {
 
     return dbService.setData(this.getPathArray(userID), Object.assign(data, {
       sessionsCount: 0,
-      groups: { demo: true },
+      groups: {
+        demo: true,
+        site: true,
+      },
       creationDate: new Date().toString(),
     }));
   },

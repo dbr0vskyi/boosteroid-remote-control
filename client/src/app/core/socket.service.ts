@@ -4,11 +4,17 @@ import * as io from 'socket.io-client';
 
 @Injectable()
 export class SocketService {
-  private host: string = 'http://localhost:8080';
+  private host: string;
   private socket: any;
 
   constructor() {
-    this.socket = io(this.host);
+    const parts = document.location.pathname.split('/');
+    const base = parts.slice(0, parts.length - 1).join('/') + '/';
+    const path = base + 'socket.io';
+
+    this.host = window.location.protocol + "//" + window.location.host;
+
+    this.socket = io(this.host, { path });
     this.socket.on("connect", () => this.connected());
     this.socket.on("disconnect", () => this.disconnected());
     this.socket.on("error", (error: string) => {
@@ -16,25 +22,23 @@ export class SocketService {
     });
   }
 
-  public emit(chanel:string, message:any) {
-    return new Observable<any>(observer => {
-      this.socket.emit(chanel, message, function (data) {
-        if (data.success) {
-          observer.next(data.msg);
-        } else {
-          observer.error(data.msg);
-        }
+  private connected() {}
 
-        observer.complete();
-      });
-    });
+  private disconnected() {}
+
+  public on(chanel: string, callback: Function) {
+    return this.socket.on(chanel, callback);
+  }
+
+  public emit(chanel: string, ...data: any[]) {
+    return this.socket.emit(chanel, ...data);
   }
 
   public connect() {
-    this.socket.connect();
+    return this.socket.connect();
   }
   public disconnect() {
-    this.socket.disconnect();
+    return this.socket.disconnect();
   }
 
 }

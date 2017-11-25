@@ -78,7 +78,6 @@
   -ms-flex-align: center;
   align-items: center;
   margin-top: 15px;
-  display: none;
 }
 
 .question_second-popup > * {
@@ -126,7 +125,7 @@
 }
 
 .question_first-inner--approve::before, .question_second-inner--approve::before {
-  background-image: url("../img/approve.png");
+  background-image: url("../../../assets/img/approve.png");
 }
 
 .question_first-inner--approve:checked::before, .question_second-inner--approve:checked::before {
@@ -134,7 +133,7 @@
 }
 
 .question_first-inner--disapprove::before, .question_second-inner--disapprove::before {
-  background-image: url("../img/disapprove.png");
+  background-image: url("../../../assets/img/disapprove.png");
 }
 
 .question_first-inner--disapprove:checked::before, .question_second-inner--disapprove:checked::before {

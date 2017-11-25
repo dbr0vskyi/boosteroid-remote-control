@@ -1,0 +1,11 @@
+<canvas #rdpCanvas
+        mouseWheel
+        [height]="height"
+        [width]="width"
+        (mousemove)="onCanvasMouseMove($event)"
+        (mousedown)="onCanvasMouseDown($event)"
+        (mouseup)="onCanvasMouseUp($event)"
+        (mouseWheelUp)="onCanvasWheel($event)"
+        (mouseWheelDown)="onCanvasWheel($event)"
+        (contextmenu)="onCanvasContextMenu($event)">>
+</canvas>

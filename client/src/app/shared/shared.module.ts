@@ -10,6 +10,7 @@ import {
   WaitingModule,
 } from '../common';
 
+
 @NgModule({
   imports: [
     CommonModule,

@@ -3,37 +3,74 @@
 <div class="main_wrap">
   <div class="main">
     <div class="main_header">
-      <p class="main_header-text"><span class="main_header-text--bold">Demo period has expired</span><br/>Please, answer a couple of questions and give feedback.</p>
+      <p class="main_header-text"><span class="main_header-text--bold">Demo time is over</span><br/>Please, give us your feedback</p>
     </div>
 
     <div class="question">
       <div class="question_first">
-        <p>Нужен ли такой сервис?</p>
+            <p>Is this service useful?</p>
         <div class="question_first-inner">
-          <input type="radio" name="first_question" class="question_first-inner--approve">
-          <input type="radio" name="first_question" class="question_first-inner--disapprove">
+          <input type="radio"
+                 name="first_question"
+                 class="question_first-inner--approve"
+                 (click)="changeInput('useful', true)">
+          <input type="radio"
+                 name="first_question"
+                 class="question_first-inner--disapprove"
+                 (click)="changeInput('useful', false)">
         </div>
       </div>
 
       <div class="question_second">
-        <p>Есть ли конкретное приложение, которое вы бы хотели<br/>проверить на таком сервисе ?</p>
-        <div class="question_second-inner">
-          <input type="radio" name="second_question" class="question_second-inner--approve">
-          <input type="radio" name="second_question" class="question_second-inner--disapprove">
+        <p>Is there any particular app you would like <br/> to test on this service?</p>
+
+        <div *ngIf="!(form$ | async).wouldLikeToTest"
+             class="question_second-inner">
+          <input type="radio"
+                 name="second_question"
+                 class="question_second-inner--approve"
+                 (click)="changeInput('wouldLikeToTest', true)">
+          <input type="radio"
+                 name="second_question"
+                 class="question_second-inner--disapprove"
+                 (click)="changeInput('wouldLikeToTest', false)">
         </div>
-        <div class="question_second-popup">
+
+        <div *ngIf="(form$ | async).wouldLikeToTest"
+             class="question_second-popup">
           <div class="question_second-popup--text">
             <p>Напишите, какое?</p>
           </div>
-          <textarea class="question_second-popup--input" name="question_second-popup--input" id="question_second-popup--input" cols="30" rows="1"></textarea>
+          <textarea class="question_second-popup--input"
+                    name="question_second-popup--input"
+                    id="question_second-popup--input"
+                    cols="30"
+                    rows="1"
+                    maxlength="500"
+                    #appForTestsTextarea
+                    (change)="changeInput('appForTests', appForTestsTextarea.value)">
+          </textarea>
         </div>
       </div>
     </div>
 
     <div class="feedback">
-      <div class="feedback_text">Ваши предложения, если таковые имеются!</div>
-      <textarea class="feedback_input" name="feedback_input" id="feedback_input" cols="30" rows="4"></textarea>
-      <button class="feedback_button">send feedback</button>
+      <div class="feedback_text">Do you have any suggestions?</div>
+
+      <textarea class="feedback_input"
+                name="feedback_input"
+                id="feedback_input"
+                cols="30"
+                rows="4"
+                maxlength="500"
+                #suggestionsTextarea
+                (change)="changeInput('suggestions', suggestionsTextarea.value)">
+      </textarea>
+
+      <button class="feedback_button"
+              (click)="sendFeedback()">
+        send feedback
+      </button>
     </div>
   </div>
 </div>

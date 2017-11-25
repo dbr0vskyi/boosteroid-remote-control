@@ -1,5 +1,5 @@
-<canvas (mousemove)="onCanvasMouseMove($event)"
-        (mousedown)="onCanvasMouseDown($event)"
-        (mouseup)="onCanvasMouseUp($event)"
-        (contextmenu)="onCanvasContextMenu($event)">
-</canvas>
+<remote-control-canvas *ngIf="keymap$ | async"
+                       [keymap]="keymap$ | async"
+                       [height]="canvasHeight"
+                       [width]="canvasWidth">
+</remote-control-canvas>
