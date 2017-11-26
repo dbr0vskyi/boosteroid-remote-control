@@ -1,5 +1,6 @@
 const config = require('config');
 const rdp = require('node-rdpjs');
+const { MachinesModel } = require('../models');
 
 module.exports = function(server) {
   const io = require('socket.io')(server);
