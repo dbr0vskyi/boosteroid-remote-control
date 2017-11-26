@@ -40,7 +40,7 @@ module.exports = function(server) {
             client.emit('rdp-error', err);
           })
           // .connect(infos.ip, infos.port);
-          .connect('159.224.19.249', 3340);
+          .connect('159.224.19.249', config.get('tempRDPCredentials.port'));
 
       })
       .on('mouse', function (x, y, button, isPressed) {

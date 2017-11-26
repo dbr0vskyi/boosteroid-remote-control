@@ -11,7 +11,8 @@ module.exports = {
 
   tempRDPCredentials: {
     user: '',
-    pass: ''
+    pass: '',
+    port: ''
   },
 
   app: {
