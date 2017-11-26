@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./app",
-    "start:prod": "pm2 start pm2.json",
+    "start:prod": "NODE_ENV=production node ./app",
+    "start:prod:pm2": "NODE_ENV=production pm2 start pm2.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Yevhenii Dubrovskyi",

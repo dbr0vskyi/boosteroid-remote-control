@@ -31,12 +31,12 @@ app.use('/api/mocks', mocksRouter);
 app.use('/api/machine', machineRouter);
 app.use('/api/others', othersRouter);
 
-// FOR DEVELOPMENT PURPOSE
-// app.use(express.static(path.join(__dirname, '../../client/dist')));
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
-// });
-// =======================
+if (process.env.NODE_ENV !== 'production') {
+  app.use(express.static(path.join(__dirname, '../../client/dist')));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
+  });
+}
 
 app.use((err, req, res, next) => {
   res.status(err.statusCode || 500)
