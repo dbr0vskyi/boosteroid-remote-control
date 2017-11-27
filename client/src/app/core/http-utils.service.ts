@@ -2,38 +2,39 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { ModalModel } from '../common/modal/modal.model';
-import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class HttpUtilsService {
-  private PREFIX: string = '';
 
   constructor(
     private http: HttpClient,
-    private authService: AuthService,
   ) {
-
   }
 
-  getModalsData() {
-    return this.http.get<{ [key: string]: ModalModel }>(this.PREFIX + '/api/mocks/modals');
+  public checkUserAccessToSite(userID) {
+    return this.http.post('/api/auth/check-user-site', { userID });
   }
 
-  getKeymap() {
-    return this.http.get(this.PREFIX + '/api/mocks/keymap');
+  public checkUserAccessToDemo(userID) {
+    return this.http.post('/api/auth/check-user-demo', { userID });
   }
 
-  postRequestAccess(email) {
-    return this.http.post(this.PREFIX + '/api/auth/request-access', {
-      email
-    });
+  public getModalsData() {
+    return this.http.get<{ [key: string]: ModalModel }>('/api/mocks/modals');
   }
 
-  saveFeedback(form) {
-    return this.http.post(this.PREFIX + '/api/others/save-feedback', {
+  public getKeymap() {
+    return this.http.get('/api/mocks/keymap');
+  }
+
+  public postRequestAccess(email) {
+    return this.http.post('/api/auth/request-access', { email });
+  }
+
+  public saveFeedback(userID, form) {
+    return this.http.post('/api/others/save-feedback', {
       form,
-      // userID: this.authService.getUserID(),
-      userID: '1aedb8d9dc4751e229a335e371db8058',
+      userID
     });
   }
 

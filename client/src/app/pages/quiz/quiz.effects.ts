@@ -7,6 +7,7 @@ import { UnsafeAction } from '../../shared/utils';
 import * as quiz from './quiz.actions';
 import { HttpUtilsService } from '../../core/http-utils.service';
 import * as router from '../../common-controls/router/router.actions';
+import { AuthService } from '../../auth/auth.service';
 
 @Injectable()
 export class QuizEffects {
@@ -15,6 +16,7 @@ export class QuizEffects {
     private store: Store<any>,
     private actions$: Actions,
     private httpUtilsService: HttpUtilsService,
+    private authService: AuthService,
   ) {}
 
   @Effect() saveFeedback$: Observable<UnsafeAction> = this.actions$
@@ -23,7 +25,8 @@ export class QuizEffects {
       this.store.select('quiz', 'form'),
     )
     .do(([action, form]) => {
-      this.httpUtilsService.saveFeedback(form).subscribe(() => {});
+      const { userID } = this.authService.getUser();
+      this.httpUtilsService.saveFeedback(userID, form).subscribe(() => {});
     })
     .map(() => {
       return new router.Go({ path: ['/info'] });

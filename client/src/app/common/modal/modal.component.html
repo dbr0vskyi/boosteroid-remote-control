@@ -9,7 +9,8 @@
       </p>
     </div>
 
-    <button class="modal_content-button"
+    <button *ngIf="data?.button"
+            class="modal_content-button"
             (click)="onCloseButtonClick()">{{ data.button }}</button>
   </div>
 </div>

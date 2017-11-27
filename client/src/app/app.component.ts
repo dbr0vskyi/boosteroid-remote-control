@@ -1,17 +1,15 @@
-/**
- * Angular 2 decorators and services
- */
 import {
   Component,
   OnInit,
   ViewEncapsulation
 } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+
 import { AppState } from './app.service';
 
-/**
- * App Component
- * Top Level Component
- */
+declare const window: any;
+
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
@@ -28,14 +26,17 @@ import { AppState } from './app.service';
   `
 })
 export class AppComponent implements OnInit {
-  public name = 'Boosteroid Demo Service';
 
   constructor(
-    public appState: AppState
-  ) {}
+    public appState: AppState,
+    private store: Store<any>,
+  ) {
+  }
 
   public ngOnInit() {
     console.log('Initial App State', this.appState.state);
+
+    window.appComponentInit && window.appComponentInit();
   }
 
 }

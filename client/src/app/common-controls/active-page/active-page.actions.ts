@@ -4,7 +4,9 @@ import { UnsafeAction, type } from '../../shared/utils';
 
 export const ActionTypes = {
   SET_ACTIVE_PAGE: type('[Active Page] Set active page'),
+
   MOCK_ACTIVE_PAGE: type('[Active Page] Mock active page'),
+
   SET_PARAM_ACTIVE_PAGE: type('[Active Page] Set Param Active page'),
 
 };
