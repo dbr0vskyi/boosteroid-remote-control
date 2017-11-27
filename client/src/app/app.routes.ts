@@ -1,7 +1,11 @@
 import { Routes } from '@angular/router';
 import { NoContentComponent } from './no-content';
 
-import { AuthGuard } from './auth';
+import {
+  AuthGuard,
+  DemoGuard,
+} from './auth';
+
 import {
   LoginComponent,
   LoginResolveService,
@@ -41,7 +45,10 @@ export const ROUTES: Routes = [
     resolve: {
       item: RemoteControlResolveService,
     },
-    canActivate: [AuthGuard],
+    canActivate: [
+      AuthGuard,
+      DemoGuard
+    ],
   },
   {
     path: 'settings',

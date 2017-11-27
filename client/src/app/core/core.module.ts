@@ -5,7 +5,7 @@ import { HttpUtilsService } from './http-utils.service';
 import { SocketService } from './socket.service';
 import { RemoteControlService } from '../pages/remote-control';
 import { UtilsService, UtilsServiceConfig } from './utils.service';
-import { AuthGuard, AuthService } from '../auth';
+import { AuthGuard, AuthService, DemoGuard } from '../auth';
 import { StorageService } from './storage.service';
 import { InfoResolveService } from '../pages/info';
 import { LoginResolveService, LoginService } from '../pages/login'
@@ -19,6 +19,7 @@ import { SettingsResolveService } from '../pages/settings';
     UtilsService,
     AuthGuard,
     AuthService,
+    DemoGuard,
     SocketService,
     RemoteControlService,
     StorageService,

@@ -22,7 +22,7 @@ module.exports = {
 
   updateMachine(machineType, machineID, data) {
     return dbService.updateData(this.getPathArray(machineType, machineID), Object.assign(data, {
-      lastUpdate: new Date.toString(),
+      lastUpdate: new Date().toString(),
     }))
   }
 };

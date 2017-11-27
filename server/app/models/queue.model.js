@@ -3,8 +3,8 @@ const { dbService } = require('../services');
 module.exports = {
   PATH: ['queue'],
 
-  getPathArray(machineType) {
-    return this.PATH.concat(machineType);
+  getPathArray(...parts) {
+    return this.PATH.concat(parts);
   },
 
   getQueueByType(machineType) {
@@ -12,6 +12,10 @@ module.exports = {
   },
 
   addUserToQueue(machineType, userID) {
-    return dbService.pushData(this.getQueueByType(machineType), userID);
+    return dbService.setData(this.getPathArray(machineType, userID), userID);
+  },
+
+  removeQueueByType(machineType) {
+    return dbService.removeData(this.getPathArray(machineType));
   }
 };

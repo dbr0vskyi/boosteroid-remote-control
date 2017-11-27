@@ -7,7 +7,7 @@ const config = require('config');
 const { emailService, templateService } = require('./services');
 emailService.setTemplateService(templateService);
 
-const { authRouter, mocksRouter, machineRouter, othersRouter } = require('./routes');
+const { authRouter, mocksRouter, machinesRouter, othersRouter } = require('./routes');
 
 const appLogsPath = path.join(
   __dirname,
@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 app.use(logger(config.get('logs.type'), { stream: appLogs }));
 app.use('/api/auth', authRouter);
 app.use('/api/mocks', mocksRouter);
-app.use('/api/machine', machineRouter);
+app.use('/api/machines', machinesRouter);
 app.use('/api/others', othersRouter);
 
 if (process.env.NODE_ENV !== 'production') {

@@ -1,11 +1,11 @@
 const authControllers = require('./auth');
 const mocksControllers = require('./mocks');
-const machineControllers = require('./machine');
+const machinesControllers = require('./machines');
 const othersControllers = require('./others');
 
 module.exports = {
   authControllers,
   mocksControllers,
-  machineControllers,
+  machinesControllers,
   othersControllers,
 };

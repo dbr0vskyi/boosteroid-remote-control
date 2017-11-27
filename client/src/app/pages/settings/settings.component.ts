@@ -22,11 +22,13 @@ export class SettingsComponent extends DispatchOnDestroy {
     super();
   }
 
-  public onGamingClick() {
-    this.router.navigate(['/remote-control'])
+  public onCloudMachineClick() {
+    this.router.navigate(
+      ['/remote-control'],
+      {
+        queryParams: { 'machine-type': 'cloud-computer' }
+      }
+    );
   }
 
-  public onRenderingClick() {
-    this.router.navigate(['/remote-control'])
-  }
 }

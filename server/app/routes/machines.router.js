@@ -1,11 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { machineControllers } = require('../controllers');
+const { machinesControllers } = require('../controllers');
 const { userGuard } = require('../guards');
 
 const router = express.Router();
 const jsonParser = bodyParser.json();
 
-// TODO: Use userGuard here case of sensaive info
+router.post(
+  '/check-available',
+  jsonParser,
+  userGuard(['site', 'demo'], { next: true }),
+  machinesControllers.checkAvailableController
+);
 
 module.exports = router;

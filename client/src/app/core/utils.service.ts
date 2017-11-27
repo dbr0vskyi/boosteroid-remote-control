@@ -14,4 +14,18 @@ export class UtilsService {
       this.config = config;
     }
   }
+
+  public randomInteger(min, max): number {
+    const rand = min - 0.5 + Math.random() * (max - min + 1)
+    const roundedRand = Math.round(rand);
+
+    return roundedRand;
+  }
+
+  public timout(ms): Promise<any> {
+    return new Promise((resolve, reject) => {
+     setTimeout(resolve, ms);
+    });
+  }
+
 }

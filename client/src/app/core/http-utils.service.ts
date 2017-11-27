@@ -23,6 +23,10 @@ export class HttpUtilsService {
     return this.http.get<{ [key: string]: ModalModel }>('/api/mocks/modals');
   }
 
+  public checkAvailableMachinesByType(userID, machineType) {
+    return this.http.post('/api/machines/check-available', { userID, machineType });
+  }
+
   public getKeymap() {
     return this.http.get('/api/mocks/keymap');
   }

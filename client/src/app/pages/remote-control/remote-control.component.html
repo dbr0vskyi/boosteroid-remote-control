@@ -1,5 +1,6 @@
-<remote-control-canvas *ngIf="keymap$ | async"
+<remote-control-canvas *ngIf="machineType && (keymap$ | async)"
                        [keymap]="keymap$ | async"
+                       [machineType]="machineType"
                        [height]="canvasHeight"
                        [width]="canvasWidth">
 </remote-control-canvas>

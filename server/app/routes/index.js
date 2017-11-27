@@ -1,11 +1,11 @@
 const authRouter = require('./auth.router');
 const mocksRouter = require('./mocks.router');
-const machineRouter = require('./machine.router');
+const machinesRouter = require('./machines.router');
 const othersRouter = require('./others.router');
 
 module.exports = {
   authRouter,
   mocksRouter,
-  machineRouter,
+  machinesRouter,
   othersRouter,
 };

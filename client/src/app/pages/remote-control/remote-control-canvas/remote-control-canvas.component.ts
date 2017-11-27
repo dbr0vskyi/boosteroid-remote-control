@@ -13,6 +13,7 @@ export class RemoteControlCanvasComponent implements OnInit {
 
   @Input() height: number;
   @Input() width: number;
+  @Input() machineType: string;
   @Input('keymap') keymap: any;
 
   @ViewChild('rdpCanvas') canvasRef: ElementRef;
@@ -65,6 +66,7 @@ export class RemoteControlCanvasComponent implements OnInit {
         width : this.width,
         height : this.height
       },
+      machineType: this.machineType,
       locale : this.remoteControlCanvasService.locale()
     });
   }
@@ -79,7 +81,7 @@ export class RemoteControlCanvasComponent implements OnInit {
           this.activeSession = true;
         })
         .on('rdp-bitmap', (bitmap) => {
-          console.log('[mstsc.js] bitmap update bpp : ' + bitmap.bitsPerPixel);
+          // console.log('[mstsc.js] bitmap update bpp : ' + bitmap.bitsPerPixel);
           this.updateCanvas(bitmap);
         })
         .on('rdp-close', () => {

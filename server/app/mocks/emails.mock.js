@@ -11,6 +11,7 @@ module.exports = {
     subject: '[cloud.boosteroid.com] Hurry up! One of the machines is available now!',
     title: 'Machines are now available',
     viewName: 'available-machine',
-  }
+    linkHref: 'https://cloud.boosteroid.com/settings',
+  },
 
 };

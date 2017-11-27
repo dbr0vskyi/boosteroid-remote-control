@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   Event as RouterEvent, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router,
 } from '@angular/router';
@@ -9,7 +9,9 @@ import {
   styleUrls: ['./waiting.component.scss']
 })
 export class WaitingComponent {
-  loading: boolean = true;
+  @Input() waiting: boolean;
+
+  public loading: boolean = true;
 
   constructor(private router: Router) {
     router.events.subscribe((event: RouterEvent) => {

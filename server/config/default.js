@@ -9,11 +9,7 @@ module.exports = {
     type: 'combined'
   },
 
-  tempRDPCredentials: {
-    user: '',
-    pass: '',
-    port: ''
-  },
+  availableSessionsCount: 3,
 
   app: {
     db: {
