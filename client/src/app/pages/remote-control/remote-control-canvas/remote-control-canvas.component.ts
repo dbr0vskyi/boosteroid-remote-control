@@ -3,6 +3,8 @@ import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@
 import { RemoteControlCanvasService } from './remote-control-canvas.service';
 import { SocketService } from '../../../core/socket.service';
 
+declare const window: any;
+
 @Component({
   selector: 'remote-control-canvas',
   templateUrl: 'remote-control-canvas.component.html',
@@ -45,6 +47,7 @@ export class RemoteControlCanvasComponent implements OnInit {
   }
 
   public ngOnInit() {
+    // this.requestFullScreen();
     this.ctx = this.canvasRef.nativeElement.getContext('2d');
 
     this.bindRDPEvents()
@@ -59,6 +62,17 @@ export class RemoteControlCanvasComponent implements OnInit {
 
     this.initializeRDPConnection();
   }
+
+  // public requestFullScreen() {
+  //   const canvas = this.canvasRef.nativeElement;
+  //
+  //   if (canvas.webkitRequestFullScreen) {
+  //     canvas.webkitRequestFullScreen();
+  //   } else if (canvas.mozRequestFullScreen) {
+  //     canvas.mozRequestFullScreen();
+  //   }
+  //
+  // }
 
   private initializeRDPConnection() {
     this.socketService.emit('infos', {
@@ -108,7 +122,13 @@ export class RemoteControlCanvasComponent implements OnInit {
     const imageData = this.ctx.createImageData(output.width, output.height);
     imageData.data.set(output.data);
 
-    this.ctx.putImageData(imageData, bitmap.destLeft, bitmap.destTop);
+    if (window.requestAnimationFrame) {
+      window.requestAnimationFrame(() => {
+        this.ctx.putImageData(imageData, bitmap.destLeft, bitmap.destTop);
+      });
+    } else {
+      this.ctx.putImageData(imageData, bitmap.destLeft, bitmap.destTop);
+    }
   }
 
   public onCanvasMouseMove(event) {
